@@ -1,8 +1,9 @@
 import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
-import {useTheme} from 'react-native-paper';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import PieIcon from '../assets/icons/Pie';
+import {colors} from '../themes/colors';
+import {spacing} from '../themes/spacing';
 
 type LayoutProps = {
   children: JSX.Element;
@@ -13,7 +14,8 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     flex: 1,
-    padding: 16,
+    padding: spacing(2),
+    backgroundColor: colors.blue800,
   },
   center: {
     justifyContent: 'center',
@@ -26,8 +28,8 @@ const styles = StyleSheet.create({
   },
   container: {
     minWidth: 400,
-    minHeight: 300,
     backgroundColor: 'white',
+    borderRadius: 8,
   },
   slogan: {
     color: 'white',
@@ -35,9 +37,8 @@ const styles = StyleSheet.create({
 });
 
 const Layout: React.FC<LayoutProps> = ({children}: LayoutProps) => {
-  const theme = useTheme();
   return (
-    <SafeAreaView style={{...styles.root, backgroundColor: theme.colors.background}}>
+    <SafeAreaView style={styles.root}>
       <View style={styles.center}>
         <PieIcon />
       </View>
