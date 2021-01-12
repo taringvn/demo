@@ -6,7 +6,7 @@ import {colors} from '../themes/colors';
 import {spacing} from '../themes/spacing';
 
 type LayoutProps = {
-  children: JSX.Element;
+  children: JSX.Element | JSX.Element[];
 };
 
 const styles = StyleSheet.create({

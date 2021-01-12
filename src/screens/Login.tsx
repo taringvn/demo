@@ -1,9 +1,14 @@
+import {StackScreenProps} from '@react-navigation/stack';
 import React from 'react';
 
 import Layout from '../components/Layout';
 import LoginCard from '../components/LoginCard';
+import NavigatorMap from '../navigations/NavigatorMap';
+import {UnAuthorizedStackParamsList} from '../navigations/types';
 
-export default function Login() {
+type LoginScreenNavigationProps = StackScreenProps<UnAuthorizedStackParamsList, NavigatorMap.Login>;
+
+const Login: React.FC<LoginScreenNavigationProps> = () => {
   return (
     <Layout>
       <LoginCard
@@ -16,4 +21,6 @@ export default function Login() {
       />
     </Layout>
   );
-}
+};
+
+export default Login;
