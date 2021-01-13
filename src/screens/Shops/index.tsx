@@ -6,6 +6,7 @@ import SelectIcon from '../../assets/icons/Select';
 
 import {Layout} from '../../components';
 import {colors, spacing} from '../../themes';
+import AddNewShopDialog from './AddNewShopDialog';
 
 const styles = StyleSheet.create({
   container: {
@@ -93,6 +94,9 @@ const mockShops: Shop[] = [
 
 const Shops: React.FC = () => {
   const [selectedShop, setSelectedShop] = useState<Shop>();
+  const [openAddNewShopDialog, setOpenAddNewShopDialog] = useState<boolean>(false);
+
+  const toggleAddNewShopDialog = (): void => setOpenAddNewShopDialog((prev) => !prev);
 
   const renderItem = ({item}: {item: Shop}) => {
     const isSelected = selectedShop?.id === item.id;
@@ -116,7 +120,7 @@ const Shops: React.FC = () => {
 
   const renderFooter = () => {
     return (
-      <TouchableOpacity style={styles.footerContainer}>
+      <TouchableOpacity style={styles.footerContainer} onPress={toggleAddNewShopDialog}>
         <AddIcon />
         <Text style={styles.footerLabel}>Thêm cửa hàng</Text>
       </TouchableOpacity>
@@ -138,6 +142,7 @@ const Shops: React.FC = () => {
           <Text style={styles.btnLabel}>Tiếp tục</Text>
         </TouchableOpacity>
       </View>
+      <AddNewShopDialog open={openAddNewShopDialog} onClose={toggleAddNewShopDialog} />
     </Layout>
   );
 };

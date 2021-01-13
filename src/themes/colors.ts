@@ -11,6 +11,7 @@ const colors = <const>{
   orange: '#FF881B',
   green: '#42AB44',
   teal: '#E5F1FF',
+  red: '#FF0000',
 };
 
 export default colors;

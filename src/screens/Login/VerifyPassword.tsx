@@ -33,7 +33,7 @@ const VerifyPassword: React.FC<VerifyPasswordScreenNavigationProps> = ({
           placeholder: '',
           helper: 'Quên mật khẩu?',
         }}
-        cardColors={{nextBtn: colors.orange}}
+        cardColors={{nextBtn: colors.blue, helperText: colors.orange}}
         textInputProps={{secureTextEntry: true}}
         onPressHelperLink={handlePressForgotPassword}
         onPressNext={handlePressNext}
