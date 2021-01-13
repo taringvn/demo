@@ -1,3 +1,5 @@
-const SPACING = 8;
+const SPACING_UNIT = 8;
 
-export const spacing = (value: number) => value * SPACING;
+const spacing = (value: number) => value * SPACING_UNIT;
+
+export default spacing;

@@ -1,10 +1,13 @@
 enum NavigatorMap {
   UnAuthorizedStack = 'UnAuthorizedStack',
   AuthorizedStack = 'AuthorizedStack',
-  Login = 'Login',
-  Register = 'Register',
+
+  VerifyAccount = 'VerifyAccount',
+  VerifyPassword = 'VerifyPassword',
+  VerifyOTP = 'VerifyOTP',
   ForgotPassword = 'Forgot Password',
-  Home = 'Home',
+
+  Shops = 'Shops',
 }
 
 export default NavigatorMap;

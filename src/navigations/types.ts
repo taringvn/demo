@@ -6,7 +6,11 @@ export type AppStackParamsList = {
 };
 
 export type UnAuthorizedStackParamsList = {
-  [NavigatorMap.Login]: undefined;
-  [NavigatorMap.Register]: undefined;
+  [NavigatorMap.VerifyAccount]: undefined;
+  [NavigatorMap.VerifyPassword]: undefined;
+  [NavigatorMap.VerifyOTP]: undefined;
   [NavigatorMap.ForgotPassword]: undefined;
+
+  /** those screens should be move to AuthorizedNavigator in the future */
+  [NavigatorMap.Shops]: undefined;
 };

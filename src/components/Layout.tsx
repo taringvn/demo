@@ -2,8 +2,7 @@ import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import PieIcon from '../assets/icons/Pie';
-import {colors} from '../themes/colors';
-import {spacing} from '../themes/spacing';
+import {colors, spacing} from '../themes';
 
 type LayoutProps = {
   children: JSX.Element | JSX.Element[];

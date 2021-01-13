@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, TextInput, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, TextInput, TouchableOpacity, TextInputProps} from 'react-native';
 
-import {colors} from '../themes/colors';
-import {spacing} from '../themes/spacing';
+import {colors, spacing} from '../themes';
 
 const styles = StyleSheet.create({
   container: {
@@ -41,9 +40,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: colors.white,
   },
-  forgotPasswordLabel: {
+  helperLabel: {
     fontSize: 16,
-    color: colors.orange,
   },
 });
 
@@ -53,23 +51,28 @@ type LoginCardProps = {
     input: string;
     placeholder: string;
     button: string;
-    forgot?: string;
+    helper?: string;
   };
-  buttonColor?: string;
+  cardColors?: {
+    nextBtn?: string;
+    helperText?: string;
+  };
+  textInputProps?: TextInputProps;
   onPressNext?: (value: string) => void;
-  onPressForgotPassword?: () => void;
+  onPressHelperLink?: () => void;
 };
 
 const LoginCard: React.FC<LoginCardProps> = ({
   labels,
   onPressNext,
-  buttonColor,
-  onPressForgotPassword,
+  cardColors,
+  onPressHelperLink,
+  textInputProps,
 }: LoginCardProps) => {
   const [input, setInput] = useState<string>('');
 
   const handlePress = (): void => {
-    if (input && onPressNext) onPressNext(input);
+    if (onPressNext) onPressNext(input);
   };
 
   return (
@@ -82,17 +85,20 @@ const LoginCard: React.FC<LoginCardProps> = ({
         value={input}
         onChangeText={setInput}
         placeholder={labels.placeholder}
+        {...textInputProps}
       />
 
       <TouchableOpacity
-        style={[styles.button, {backgroundColor: buttonColor || colors.blue}]}
+        style={[styles.button, {backgroundColor: cardColors?.nextBtn || colors.blue}]}
         onPress={handlePress}>
         <Text style={styles.buttonLabel}>{labels.button}</Text>
       </TouchableOpacity>
 
-      {onPressForgotPassword && (
-        <TouchableOpacity style={styles.button} onPress={onPressForgotPassword}>
-          <Text style={styles.forgotPasswordLabel}>{labels.forgot || ''}</Text>
+      {onPressHelperLink && (
+        <TouchableOpacity style={styles.button} onPress={onPressHelperLink}>
+          <Text style={[styles.helperLabel, {color: cardColors?.helperText || colors.blue}]}>
+            {labels.helper || ''}
+          </Text>
         </TouchableOpacity>
       )}
     </View>
