@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View, TextInput, TouchableOpacity} from 'react-native';
 import Modal from 'react-native-modal';
-import {colors, spacing} from '../../themes';
+import {colors, commonStyles, spacing} from '../../themes';
 
 type AddNewShopDialogProps = {
   open: boolean;
@@ -20,26 +20,12 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     padding: spacing(2),
   },
-  title: {
-    fontSize: 20,
-    color: colors.blue900,
-    marginBottom: spacing(2),
-    fontWeight: 'bold',
-  },
   inputLabel: {
     fontSize: 14,
     color: colors.gray900,
     marginBottom: spacing(1),
     marginTop: spacing(1),
     fontWeight: 'bold',
-  },
-  input: {
-    backgroundColor: colors.gray100,
-    borderWidth: 1,
-    width: '100%',
-    height: 40,
-    borderColor: colors.gray200,
-    borderRadius: spacing(0.5),
   },
   required: {
     color: colors.red,
@@ -49,10 +35,6 @@ const styles = StyleSheet.create({
     display: 'flex',
     marginTop: spacing(2),
     flexDirection: 'row',
-  },
-  buttonLabel: {
-    color: colors.white,
-    fontSize: 20,
   },
   back: {
     flex: 1,
@@ -79,25 +61,25 @@ const AddNewShopDialog: React.FC<AddNewShopDialogProps> = ({
     <Modal isVisible={open}>
       <View style={styles.containerWrapper}>
         <View style={styles.container}>
-          <Text style={styles.title}>Thêm cửa hàng</Text>
+          <Text style={commonStyles.header}>Thêm cửa hàng</Text>
 
           <Text style={styles.inputLabel}>
             Tên cửa hàng <Text style={styles.required}>*</Text>
           </Text>
-          <TextInput style={styles.input} placeholder="Tên cửa hàng" />
+          <TextInput style={commonStyles.input} placeholder="Tên cửa hàng" />
           <Text style={styles.inputLabel}>Số điện thoại</Text>
-          <TextInput style={styles.input} placeholder="Số điện thoại" />
+          <TextInput style={commonStyles.input} placeholder="Số điện thoại" />
           <Text style={styles.inputLabel}>
             Địa chỉ <Text style={styles.required}>*</Text>
           </Text>
-          <TextInput style={styles.input} placeholder="Vị trí, địa chỉ cửa hàng,..." />
+          <TextInput style={commonStyles.input} placeholder="Vị trí, địa chỉ cửa hàng,..." />
 
           <View style={styles.actions}>
             <TouchableOpacity style={[styles.back, styles.center]} onPress={onClose}>
-              <Text style={styles.buttonLabel}>Trở lại</Text>
+              <Text style={commonStyles.buttonLabel}>Trở lại</Text>
             </TouchableOpacity>
             <TouchableOpacity style={[styles.create, styles.center]}>
-              <Text style={styles.buttonLabel}>Tạo</Text>
+              <Text style={commonStyles.buttonLabel}>Tạo</Text>
             </TouchableOpacity>
           </View>
         </View>

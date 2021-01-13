@@ -5,7 +5,7 @@ import AddIcon from '../../assets/icons/Add';
 import SelectIcon from '../../assets/icons/Select';
 
 import {Layout} from '../../components';
-import {colors, spacing} from '../../themes';
+import {colors, commonStyles, spacing} from '../../themes';
 import AddNewShopDialog from './AddNewShopDialog';
 
 const styles = StyleSheet.create({
@@ -13,12 +13,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     padding: spacing(2),
     borderRadius: spacing(1),
-  },
-  title: {
-    fontSize: 20,
-    color: colors.blue900,
-    marginBottom: spacing(2),
-    fontWeight: 'bold',
   },
   flatlist: {
     maxHeight: 300,
@@ -131,7 +125,7 @@ const Shops: React.FC = () => {
   return (
     <Layout username={'Đỗ Anh Dân'}>
       <View style={styles.container}>
-        <Text style={styles.title}>Chọn cửa hàng</Text>
+        <Text style={commonStyles.header}>Chọn cửa hàng</Text>
         <FlatList
           style={styles.flatlist}
           data={mockShops}
