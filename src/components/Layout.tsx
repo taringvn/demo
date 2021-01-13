@@ -6,6 +6,7 @@ import {colors, spacing} from '../themes';
 
 type LayoutProps = {
   children: JSX.Element | JSX.Element[];
+  username?: string;
 };
 
 const styles = StyleSheet.create({
@@ -19,6 +20,11 @@ const styles = StyleSheet.create({
   center: {
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  username: {
+    fontSize: 20,
+    color: colors.white,
+    marginBottom: spacing(2),
   },
   containerWrapper: {
     flex: 1,
@@ -35,13 +41,14 @@ const styles = StyleSheet.create({
   },
 });
 
-const Layout: React.FC<LayoutProps> = ({children}: LayoutProps) => {
+const Layout: React.FC<LayoutProps> = ({children, username}: LayoutProps) => {
   return (
     <SafeAreaView style={styles.root}>
       <View style={styles.center}>
         <PieIcon />
       </View>
       <View style={styles.containerWrapper}>
+        {username && <Text style={styles.username}>{`Xin chào, ${username}`}</Text>}
         <View style={styles.container}>{children}</View>
       </View>
       <View style={styles.center}>

@@ -13,11 +13,14 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: colors.blue900,
     marginBottom: spacing(2),
+    textAlign: 'center',
+    fontWeight: 'bold',
   },
   inputLabel: {
     fontSize: 14,
     color: colors.gray900,
     marginBottom: spacing(2),
+    fontWeight: 'bold',
   },
   input: {
     backgroundColor: colors.gray100,

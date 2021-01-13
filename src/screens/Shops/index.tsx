@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: colors.blue900,
     marginBottom: spacing(2),
+    fontWeight: 'bold',
   },
   flatlist: {
     maxHeight: 300,
@@ -128,7 +129,7 @@ const Shops: React.FC = () => {
   };
 
   return (
-    <Layout>
+    <Layout username={'Đỗ Anh Dân'}>
       <View style={styles.container}>
         <Text style={styles.title}>Chọn cửa hàng</Text>
         <FlatList
