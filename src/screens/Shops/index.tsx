@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
 import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {color} from 'react-native-reanimated';
+
 import AddIcon from '../../assets/icons/Add';
 import SelectIcon from '../../assets/icons/Select';
-
 import {Layout} from '../../components';
 import {colors, commonStyles, spacing} from '../../themes';
 import AddNewShopDialog from './AddNewShopDialog';
@@ -15,7 +14,7 @@ const styles = StyleSheet.create({
     borderRadius: spacing(1),
   },
   flatlist: {
-    maxHeight: 300,
+    maxHeight: 200,
   },
 
   itemContainer: {
