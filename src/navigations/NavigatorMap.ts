@@ -8,6 +8,7 @@ enum NavigatorMap {
   ForgotPassword = 'Forgot Password',
 
   Shops = 'Shops',
+  SetUpAccount = 'SetUpAccount',
 }
 
 export default NavigatorMap;

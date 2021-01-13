@@ -13,4 +13,5 @@ export type UnAuthorizedStackParamsList = {
 
   /** those screens should be move to AuthorizedNavigator in the future */
   [NavigatorMap.Shops]: undefined;
+  [NavigatorMap.SetUpAccount]: undefined;
 };
