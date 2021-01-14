@@ -17,7 +17,7 @@ const VerifyOTP: React.FC<VerifyOTPScreenNavigationProps> = ({
 }: VerifyOTPScreenNavigationProps) => {
   const handlePressNext = (): void => {
     // TODO
-    navigation.navigate(NavigatorMap.Shops);
+    navigation.navigate(NavigatorMap.SetUpAccount);
   };
 
   return (

@@ -1,7 +1,10 @@
+import {StackScreenProps} from '@react-navigation/stack';
 import React from 'react';
 import {StyleSheet, TextInput, View, TouchableOpacity} from 'react-native';
 
 import {Layout, Typography} from '../components';
+import NavigatorMap from '../navigations/NavigatorMap';
+import {UnAuthorizedStackParamsList} from '../navigations/types';
 import {colors, commonStyles, spacing} from '../themes';
 
 const styles = StyleSheet.create({
@@ -18,7 +21,16 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function SetUpAccount() {
+type SetupAccountScreenNavigationProps = StackScreenProps<
+  UnAuthorizedStackParamsList,
+  NavigatorMap.SetUpAccount
+>;
+
+export default function SetUpAccount({navigation}: SetupAccountScreenNavigationProps) {
+  const handlePressNext = (): void => {
+    // TODO
+    navigation.navigate(NavigatorMap.Shops);
+  };
   return (
     <Layout>
       <View style={styles.container}>
@@ -39,7 +51,9 @@ export default function SetUpAccount() {
           placeholder="Sử dụng 8 kí tự trở lên, bao gồm chữ và số"
         />
 
-        <TouchableOpacity style={commonStyles.button}>
+        <TouchableOpacity
+          style={[commonStyles.button, {backgroundColor: colors.blue}]}
+          onPress={handlePressNext}>
           <Typography variant="h5" style={commonStyles.buttonLabel}>
             Tạo
           </Typography>
