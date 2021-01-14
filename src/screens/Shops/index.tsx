@@ -1,9 +1,11 @@
+import {observer} from 'mobx-react-lite';
 import React, {useState} from 'react';
 import {FlatList, StyleSheet, TouchableOpacity, View} from 'react-native';
 
 import AddIcon from '../../assets/icons/Add';
 import SelectIcon from '../../assets/icons/Select';
 import {Layout, Typography} from '../../components';
+import {useNotiStore} from '../../hooks/useNotiStores';
 import {colors, commonStyles, spacing} from '../../themes';
 import AddNewShopDialog from './AddNewShopDialog';
 
@@ -85,10 +87,11 @@ const mockShops: Shop[] = [
 const Shops: React.FC = () => {
   const [selectedShop, setSelectedShop] = useState<Shop>();
   const [openAddNewShopDialog, setOpenAddNewShopDialog] = useState<boolean>(false);
+  const notiStore = useNotiStore();
 
   const toggleAddNewShopDialog = (): void => setOpenAddNewShopDialog((prev) => !prev);
 
-  const renderItem = ({item}: {item: Shop}) => {
+  const renderItem = ({item}: {item: Shop}): JSX.Element => {
     const isSelected = selectedShop?.id === item.id;
     return (
       <TouchableOpacity
@@ -108,13 +111,17 @@ const Shops: React.FC = () => {
     );
   };
 
-  const renderFooter = () => {
+  const renderFooter = (): JSX.Element => {
     return (
       <TouchableOpacity style={styles.footerContainer} onPress={toggleAddNewShopDialog}>
         <AddIcon />
         <Typography style={styles.footerLabel}>Thêm cửa hàng</Typography>
       </TouchableOpacity>
     );
+  };
+
+  const handleNext = (): void => {
+    notiStore?.showNoti('warning', 'This feature is not implemented');
   };
 
   return (
@@ -131,7 +138,7 @@ const Shops: React.FC = () => {
           keyExtractor={(item) => `${item.id}`}
         />
         <TouchableOpacity style={styles.nextBtn}>
-          <Typography variant="h5" style={commonStyles.buttonLabel}>
+          <Typography variant="h5" style={commonStyles.buttonLabel} onPress={handleNext}>
             Tiếp tục
           </Typography>
         </TouchableOpacity>
@@ -141,4 +148,4 @@ const Shops: React.FC = () => {
   );
 };
 
-export default Shops;
+export default observer(Shops);

@@ -1,8 +1,10 @@
+import {observer} from 'mobx-react-lite';
 import React from 'react';
 import {StyleSheet, View, TextInput, TouchableOpacity} from 'react-native';
 import Modal from 'react-native-modal';
 
 import {Typography} from '../../components';
+import {useNotiStore} from '../../hooks/useNotiStores';
 import {colors, commonStyles, spacing} from '../../themes';
 
 type AddNewShopDialogProps = {
@@ -59,6 +61,11 @@ const AddNewShopDialog: React.FC<AddNewShopDialogProps> = ({
   open,
   onClose,
 }: AddNewShopDialogProps) => {
+  const notiStore = useNotiStore();
+
+  const handleSave = (): void => {
+    notiStore?.showNoti('success', 'New shop is successful added');
+  };
   return (
     <Modal isVisible={open}>
       <View style={styles.containerWrapper}>
@@ -84,7 +91,7 @@ const AddNewShopDialog: React.FC<AddNewShopDialogProps> = ({
                 Trở lại
               </Typography>
             </TouchableOpacity>
-            <TouchableOpacity style={[styles.create, styles.center]}>
+            <TouchableOpacity style={[styles.create, styles.center]} onPress={handleSave}>
               <Typography variant="h5" style={commonStyles.buttonLabel}>
                 Tạo
               </Typography>
@@ -96,4 +103,4 @@ const AddNewShopDialog: React.FC<AddNewShopDialogProps> = ({
   );
 };
 
-export default AddNewShopDialog;
+export default observer(AddNewShopDialog);

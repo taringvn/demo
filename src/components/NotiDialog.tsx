@@ -1,17 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import {observer} from 'mobx-react-lite';
+import React from 'react';
 import {StyleSheet, View, TouchableOpacity, ActivityIndicator} from 'react-native';
 import Modal from 'react-native-modal';
 
 import SuccessIcon from '../assets/icons/Success';
 import WarningIcon from '../assets/icons/Warning';
+import {useNotiStore} from '../hooks/useNotiStores';
 import {colors, spacing} from '../themes';
 import Typography from './Typography';
-
-type NotiDialogProps = {
-  variant?: 'success' | 'warning' | 'loading';
-  message?: string;
-  onPress?: () => void;
-};
 
 const styles = StyleSheet.create({
   containerWrapper: {
@@ -32,9 +28,11 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function NotiDialog({message, variant = 'success', onPress}: NotiDialogProps) {
+const NotiDialog: React.FC = () => {
+  const notiStore = useNotiStore();
+
   let Icon = <SuccessIcon />;
-  switch (variant) {
+  switch (notiStore?.variant) {
     case 'warning':
       Icon = <WarningIcon />;
       break;
@@ -48,15 +46,17 @@ export default function NotiDialog({message, variant = 'success', onPress}: Noti
   }
 
   return (
-    <Modal isVisible={Boolean(message)}>
+    <Modal isVisible={Boolean(notiStore?.message)} animationIn="fadeIn" animationOut="fadeOut">
       <View style={styles.containerWrapper}>
-        <TouchableOpacity style={styles.container} onPress={onPress}>
+        <TouchableOpacity style={styles.container} onPress={notiStore?.closeNoti}>
           {Icon}
           <Typography variant="h6" style={styles.message}>
-            {message}
+            {notiStore?.message || ''}
           </Typography>
         </TouchableOpacity>
       </View>
     </Modal>
   );
-}
+};
+
+export default observer(NotiDialog);
