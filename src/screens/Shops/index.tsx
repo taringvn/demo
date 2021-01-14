@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {FlatList, StyleSheet, TouchableOpacity, View} from 'react-native';
 
 import AddIcon from '../../assets/icons/Add';
 import SelectIcon from '../../assets/icons/Select';
-import {Layout} from '../../components';
+import {Layout, Typography} from '../../components';
 import {colors, commonStyles, spacing} from '../../themes';
 import AddNewShopDialog from './AddNewShopDialog';
 
@@ -68,10 +68,6 @@ const styles = StyleSheet.create({
     padding: spacing(1),
     backgroundColor: colors.blue,
   },
-  btnLabel: {
-    fontSize: 20,
-    color: colors.white,
-  },
 });
 
 type Shop = {
@@ -99,9 +95,9 @@ const Shops: React.FC = () => {
         style={[styles.itemContainer, {backgroundColor: isSelected ? colors.teal : colors.gray300}]}
         onPress={() => setSelectedShop(item)}>
         <View>
-          <Text style={[styles.store, styles.gutterBottom]}>{item.storeName}</Text>
-          <Text style={[styles.phone, styles.gutterBottom]}>{item.phone}</Text>
-          <Text style={styles.address}>{item.address}</Text>
+          <Typography style={[styles.store, styles.gutterBottom]}>{item.storeName}</Typography>
+          <Typography style={[styles.phone, styles.gutterBottom]}>{item.phone}</Typography>
+          <Typography style={styles.address}>{item.address}</Typography>
         </View>
         {isSelected && (
           <View>
@@ -116,7 +112,7 @@ const Shops: React.FC = () => {
     return (
       <TouchableOpacity style={styles.footerContainer} onPress={toggleAddNewShopDialog}>
         <AddIcon />
-        <Text style={styles.footerLabel}>Thêm cửa hàng</Text>
+        <Typography style={styles.footerLabel}>Thêm cửa hàng</Typography>
       </TouchableOpacity>
     );
   };
@@ -124,7 +120,9 @@ const Shops: React.FC = () => {
   return (
     <Layout username={'Đỗ Anh Dân'}>
       <View style={styles.container}>
-        <Text style={commonStyles.header}>Chọn cửa hàng</Text>
+        <Typography variant="h5" style={commonStyles.header}>
+          Chọn cửa hàng
+        </Typography>
         <FlatList
           style={styles.flatlist}
           data={mockShops}
@@ -133,7 +131,9 @@ const Shops: React.FC = () => {
           keyExtractor={(item) => `${item.id}`}
         />
         <TouchableOpacity style={styles.nextBtn}>
-          <Text style={styles.btnLabel}>Tiếp tục</Text>
+          <Typography variant="h5" style={commonStyles.buttonLabel}>
+            Tiếp tục
+          </Typography>
         </TouchableOpacity>
       </View>
       <AddNewShopDialog open={openAddNewShopDialog} onClose={toggleAddNewShopDialog} />

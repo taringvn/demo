@@ -1,7 +1,7 @@
 import React from 'react';
-import {StyleSheet, Text, TextInput, View, TouchableOpacity} from 'react-native';
+import {StyleSheet, TextInput, View, TouchableOpacity} from 'react-native';
 
-import {Layout} from '../components';
+import {Layout, Typography} from '../components';
 import {colors, commonStyles, spacing} from '../themes';
 
 const styles = StyleSheet.create({
@@ -22,15 +22,17 @@ export default function SetUpAccount() {
   return (
     <Layout>
       <View style={styles.container}>
-        <Text style={commonStyles.header}>Thiết lập tài khoản kinh doanh</Text>
+        <Typography variant="h5" style={commonStyles.header}>
+          Thiết lập tài khoản kinh doanh
+        </Typography>
 
-        <Text style={styles.inputLabel}>Tên chủ doanh nghiệp</Text>
+        <Typography style={styles.inputLabel}>Tên chủ doanh nghiệp</Typography>
         <TextInput style={commonStyles.input} placeholder="Họ và tên" />
 
-        <Text style={styles.inputLabel}>Mật khẩu</Text>
+        <Typography style={styles.inputLabel}>Mật khẩu</Typography>
         <TextInput style={commonStyles.input} secureTextEntry placeholder="Bao gồm chữ và số" />
 
-        <Text style={styles.inputLabel}>Xác nhận mật khẩu</Text>
+        <Typography style={styles.inputLabel}>Xác nhận mật khẩu</Typography>
         <TextInput
           style={commonStyles.input}
           secureTextEntry
@@ -38,7 +40,9 @@ export default function SetUpAccount() {
         />
 
         <TouchableOpacity style={commonStyles.button}>
-          <Text style={commonStyles.buttonLabel}>Tạo</Text>
+          <Typography variant="h5" style={commonStyles.buttonLabel}>
+            Tạo
+          </Typography>
         </TouchableOpacity>
       </View>
     </Layout>

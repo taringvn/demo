@@ -10,6 +10,7 @@ import VerifyOTP from '../screens/Login/VerifyOTP';
 import ForgotPassword from '../screens/ForgotPassword';
 import Shops from '../screens/Shops';
 import SetUpAccount from '../screens/SetUpAccount';
+import LoginWithSavedShop from '../screens/LoginWithSavedShop';
 
 const Stack = createStackNavigator<UnAuthorizedStackParamsList>();
 
@@ -17,12 +18,14 @@ const UnAuthorizedNavigator = () => {
   return (
     <Stack.Navigator
       headerMode="none"
-      // initialRouteName={NavigatorMap.SetUpAccount}
+      initialRouteName={NavigatorMap.LoginWithSavedShop}
       screenOptions={{animationEnabled: false}}>
       <Stack.Screen name={NavigatorMap.VerifyAccount} component={VerifyAccount} />
       <Stack.Screen name={NavigatorMap.VerifyPassword} component={VerifyPassword} />
       <Stack.Screen name={NavigatorMap.VerifyOTP} component={VerifyOTP} />
       <Stack.Screen name={NavigatorMap.ForgotPassword} component={ForgotPassword} />
+
+      <Stack.Screen name={NavigatorMap.LoginWithSavedShop} component={LoginWithSavedShop} />
 
       {/** those screens should be move to AuthorizedNavigator in the future */}
       <Stack.Screen name={NavigatorMap.Shops} component={Shops} />

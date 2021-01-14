@@ -11,6 +11,8 @@ export type UnAuthorizedStackParamsList = {
   [NavigatorMap.VerifyOTP]: undefined;
   [NavigatorMap.ForgotPassword]: undefined;
 
+  [NavigatorMap.LoginWithSavedShop]: undefined;
+
   /** those screens should be move to AuthorizedNavigator in the future */
   [NavigatorMap.Shops]: undefined;
   [NavigatorMap.SetUpAccount]: undefined;

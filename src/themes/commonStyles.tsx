@@ -5,11 +5,9 @@ import spacing from './spacing';
 
 export default StyleSheet.create({
   header: {
-    fontSize: 20,
     color: colors.blue900,
     marginBottom: spacing(2),
     textAlign: 'center',
-    fontWeight: 'bold',
   },
   button: {
     borderRadius: 3,
@@ -21,7 +19,6 @@ export default StyleSheet.create({
     padding: spacing(1),
   },
   buttonLabel: {
-    fontSize: 20,
     color: colors.white,
   },
   input: {

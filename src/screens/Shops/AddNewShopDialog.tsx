@@ -1,6 +1,8 @@
 import React from 'react';
-import {StyleSheet, Text, View, TextInput, TouchableOpacity} from 'react-native';
+import {StyleSheet, View, TextInput, TouchableOpacity} from 'react-native';
 import Modal from 'react-native-modal';
+
+import {Typography} from '../../components';
 import {colors, commonStyles, spacing} from '../../themes';
 
 type AddNewShopDialogProps = {
@@ -61,25 +63,31 @@ const AddNewShopDialog: React.FC<AddNewShopDialogProps> = ({
     <Modal isVisible={open}>
       <View style={styles.containerWrapper}>
         <View style={styles.container}>
-          <Text style={commonStyles.header}>Thêm cửa hàng</Text>
+          <Typography variant="h5" style={commonStyles.header}>
+            Thêm cửa hàng
+          </Typography>
 
-          <Text style={styles.inputLabel}>
-            Tên cửa hàng <Text style={styles.required}>*</Text>
-          </Text>
+          <Typography style={styles.inputLabel}>
+            Tên cửa hàng <Typography style={styles.required}>*</Typography>
+          </Typography>
           <TextInput style={commonStyles.input} placeholder="Tên cửa hàng" />
-          <Text style={styles.inputLabel}>Số điện thoại</Text>
+          <Typography style={styles.inputLabel}>Số điện thoại</Typography>
           <TextInput style={commonStyles.input} placeholder="Số điện thoại" />
-          <Text style={styles.inputLabel}>
-            Địa chỉ <Text style={styles.required}>*</Text>
-          </Text>
+          <Typography style={styles.inputLabel}>
+            Địa chỉ <Typography style={styles.required}>*</Typography>
+          </Typography>
           <TextInput style={commonStyles.input} placeholder="Vị trí, địa chỉ cửa hàng,..." />
 
           <View style={styles.actions}>
             <TouchableOpacity style={[styles.back, styles.center]} onPress={onClose}>
-              <Text style={commonStyles.buttonLabel}>Trở lại</Text>
+              <Typography variant="h5" style={commonStyles.buttonLabel}>
+                Trở lại
+              </Typography>
             </TouchableOpacity>
             <TouchableOpacity style={[styles.create, styles.center]}>
-              <Text style={commonStyles.buttonLabel}>Tạo</Text>
+              <Typography variant="h5" style={commonStyles.buttonLabel}>
+                Tạo
+              </Typography>
             </TouchableOpacity>
           </View>
         </View>

@@ -6,6 +6,7 @@ enum NavigatorMap {
   VerifyPassword = 'VerifyPassword',
   VerifyOTP = 'VerifyOTP',
   ForgotPassword = 'Forgot Password',
+  LoginWithSavedShop = 'LoginWithSavedShop',
 
   Shops = 'Shops',
   SetUpAccount = 'SetUpAccount',

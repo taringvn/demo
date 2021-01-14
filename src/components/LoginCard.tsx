@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {View, Text, StyleSheet, TextInput, TouchableOpacity, TextInputProps} from 'react-native';
 
 import {colors, commonStyles, spacing} from '../themes';
+import Typography from './Typography';
 
 const styles = StyleSheet.create({
   container: {
@@ -14,9 +15,6 @@ const styles = StyleSheet.create({
     color: colors.gray900,
     marginBottom: spacing(2),
     fontWeight: 'bold',
-  },
-  helperLabel: {
-    fontSize: 16,
   },
 });
 
@@ -52,9 +50,13 @@ const LoginCard: React.FC<LoginCardProps> = ({
 
   return (
     <View style={styles.container}>
-      <Text style={commonStyles.header}>{labels.title}</Text>
+      <Typography variant="h5" style={commonStyles.header}>
+        {labels.title}
+      </Typography>
 
-      <Text style={styles.inputLabel}>{labels.input}</Text>
+      <Typography variant="h7" style={styles.inputLabel}>
+        {labels.input}
+      </Typography>
       <TextInput
         style={commonStyles.input}
         value={input}
@@ -66,14 +68,16 @@ const LoginCard: React.FC<LoginCardProps> = ({
       <TouchableOpacity
         style={[commonStyles.button, {backgroundColor: cardColors?.nextBtn || colors.blue}]}
         onPress={handlePress}>
-        <Text style={commonStyles.buttonLabel}>{labels.button}</Text>
+        <Typography variant="h5" style={commonStyles.buttonLabel}>
+          {labels.button}
+        </Typography>
       </TouchableOpacity>
 
       {onPressHelperLink && (
         <TouchableOpacity style={commonStyles.button} onPress={onPressHelperLink}>
-          <Text style={[styles.helperLabel, {color: cardColors?.helperText || colors.blue}]}>
+          <Typography variant="h6" style={{color: cardColors?.helperText || colors.blue}}>
             {labels.helper || ''}
-          </Text>
+          </Typography>
         </TouchableOpacity>
       )}
     </View>

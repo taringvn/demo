@@ -3,6 +3,7 @@ import {StyleSheet, View, Text} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import PieIcon from '../assets/icons/Pie';
 import {colors, spacing} from '../themes';
+import Typography from './Typography';
 
 type LayoutProps = {
   children: JSX.Element | JSX.Element[];
@@ -22,7 +23,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   username: {
-    fontSize: 20,
     color: colors.white,
     marginBottom: spacing(2),
   },
@@ -48,11 +48,15 @@ const Layout: React.FC<LayoutProps> = ({children, username}: LayoutProps) => {
         <PieIcon />
       </View>
       <View style={styles.containerWrapper}>
-        {username && <Text style={styles.username}>{`Xin chào, ${username}`}</Text>}
+        {username && (
+          <Typography variant="h5" style={styles.username}>{`Xin chào, ${username}`}</Typography>
+        )}
         <View style={styles.container}>{children}</View>
       </View>
       <View style={styles.center}>
-        <Text style={styles.slogan}>Luôn luôn lắng nghe, luôn luôn thấu hiểu</Text>
+        <Typography variant="h7" style={styles.slogan}>
+          Luôn luôn lắng nghe, luôn luôn thấu hiểu
+        </Typography>
       </View>
     </SafeAreaView>
   );
